@@ -1,4 +1,4 @@
-## LoadMore
+## LoadMore [![Dependency Status](http://img.shields.io/david/tinglejs/tingle-load-more.svg?style=flat-square)](https://david-dm.org/tinglejs/tingle-load-more) [![devDependency Status](http://img.shields.io/david/dev/tinglejs/tingle-load-more.svg?style=flat-square)](https://david-dm.org/tinglejs/tingle-load-more#info=devDependencies)
 
 [![travis][travis-image]][travis-url]
 [![npm][npm-image]][npm-url]
