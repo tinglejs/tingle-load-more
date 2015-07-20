@@ -34,6 +34,10 @@ class LoadMore extends React.Component {
         }, t._handleLoadEvents.bind(t));
     }
 
+    componentWillUnmount() {
+        this.watcher.dispose();
+    }
+
     _handleLoadEvents(e) {
         this.props.onLoadMore && this.props.onLoadMore({loadState: this.state.load})
     }
