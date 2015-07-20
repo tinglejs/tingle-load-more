@@ -1,5 +1,9 @@
 ## LoadMore
 
+[![travis][travis-image]][travis-url]
+[![npm][npm-image]][npm-url]
+[![downloads][downloads-image]][downloads-url]
+
 ## use
 
 #### 安装tingle-style子模块
@@ -20,3 +24,10 @@ npm start
 ## TODO
 
 * 待解决：通过`yo`如何执行`cli`命令进行`git submodule`的安装。
+
+[travis-image]: https://img.shields.io/travis/tinglejs/tingle-load-more.svg?style=flat-square
+[travis-url]: https://travis-ci.org/tinglejs/tingle-load-more
+[npm-image]: https://img.shields.io/npm/v/tingle-load-more.svg?style=flat-square
+[npm-url]: https://npmjs.org/package/tingle-load-more
+[downloads-image]: https://img.shields.io/npm/dm/tingle-load-more.svg?style=flat-square
+[downloads-url]: https://npmjs.org/package/tingle-load-more
