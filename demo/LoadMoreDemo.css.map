@@ -1,0 +1,1 @@
+{"version":3,"sources":["LoadMoreDemo.styl"],"names":[],"mappings":"AAAA;EACE,kBAAiB,KAAjB;;AAEF;EACE,aAAY,KAAZ;EACA,eAAc,eAAd;EACA,WAAU,KAAV","file":"LoadMoreDemo.css","sourcesContent":["body\n  background-color #ddd\n\n.tDemoP\n  line-height 40px\n  border-bottom 1px solid #ccc\n  font-size 14px"],"sourceRoot":"/source/"}
