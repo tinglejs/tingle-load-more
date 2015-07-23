@@ -8,7 +8,6 @@
 
 var Context = require('tingle-context');
 var classnames = require('classnames');
-var inViewPort = require('in-viewport');
 
 var LOADING = 'loading';
 var NOMORE = 'noMore';
@@ -24,32 +23,31 @@ class LoadMore extends React.Component {
 
     componentDidMount() {
         var t = this;
-        var el = React.findDOMNode(t);
 
-        var offset = t.props.offset >= 50 ? t.props.offset : 50;
-
-        // see https://github.com/vvo/in-viewport
-        this.watcher = inViewPort(el, {
-            offset: offset
-        }, t._handleLoadEvents.bind(t));
+        document.addEventListener('scroll', this._onScroll.bind(t), false)
+        document.addEventListener('resize', this._onScroll.bind(t), false)
     }
 
     componentWillUnmount() {
-        this.watcher.dispose();
-    }
 
-    _handleLoadEvents(e) {
-        this.props.onLoadMore && this.props.onLoadMore({loadState: this.state.load})
+        document.removeEventListener('scroll', this._onScroll.bind(t), false)
+        document.removeEventListener('resize', this._onScroll.bind(t), false)
     }
 
     loaded() {
         this.setState({load: LOADING});
-        this.watcher.watch();
+        this.isLoading = false;
+        this._unLock();
+    }
+
+    // lock
+    loading() {
+        this.isLoading = true;
     }
 
     noMore() {
         this.setState({load: NOMORE});
-        this.watcher.watch();
+        this._unLock();
     }
 
     render() {
@@ -68,7 +66,50 @@ class LoadMore extends React.Component {
             [t.state.load]: !!t.state.load
         })}>{text}</div>);
     }
+
+    _isVisible(el, offset) {
+        var t = this;
+        offset = t.props.offset >= 50 ? t.props.offset : 50;
+
+        // Check if the element is visible
+        // https://github.com/jquery/jquery/blob/740e190223d19a114d5373758127285d14d6b71e/src/css/hiddenVisibleSelectors.js
+        if (!el.offsetWidth || !el.offsetHeight) {
+            return false;
+        }
+
+        var eltRect = el.getBoundingClientRect();
+
+        return eltRect.top < document.body.scrollTop + offset + document.documentElement.clientHeight;
+    }
+
+    _onScroll() {
+        var t = this;
+
+        var el = React.findDOMNode(t)
+
+        if (t._isLoading()) {
+            return;
+        }
+
+        if (t._isVisible(el, this.offset)) {
+            t.loading();
+            t._handleLoadEvents();
+        }
+    }
+
+    _handleLoadEvents() {
+        this.props.onLoadMore && this.props.onLoadMore({loadState: this.state.load})
+    }
+
+    _isLoading(){
+        return this.isLoading;
+    }
+    _unLock(){
+        this.isLoading = false;
+    }
 }
+
+// todo 是否需要加载完成的处理
 LoadMore.defaultProps = {
     offset: 50,
     onLoadMore: Context.noop,

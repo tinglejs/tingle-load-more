@@ -20,9 +20,17 @@ class Demo extends React.Component {
         }
     }
 
+
+    componentDidMount() {
+        // 默认需要直接先初始化一次
+        this.startLoad();
+    }
+
     startLoad() {
         var t = this;
         var loadMore = this.refs.loadMore;
+        // 上锁
+        loadMore.loading();
         // simulate ajax
         setTimeout(()=> {
                 if (t.state.loadTimes < 5) {
@@ -43,7 +51,7 @@ class Demo extends React.Component {
         return (
             <div>
                 {children}
-                <LoadMore className="tFAC" offset={180} onLoadMore={this.startLoad.bind(this)} ref='loadMore'>
+                <LoadMore className="tFAC" offset={50} onLoadMore={this.startLoad.bind(this)} ref='loadMore'>
                 </LoadMore>
             </div>
         );

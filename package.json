@@ -5,7 +5,7 @@
   "repository": "https://github.com/tinglejs/tingle-load-more.git",
   "author": {
     "name": "yize",
-    "email": ""
+    "email": "yize.shc@gmail.com"
   },
   "main": "src/index.js",
   "files": [
@@ -19,7 +19,6 @@
   "dependencies": {
     "classnames": "^2.1.2",
     "fastclick": "^1.0.6",
-    "in-viewport": "~3.4.0",
     "react": "^0.13.3",
     "tingle-context": "~0.0.3",
     "tingle-style": "~0.0.1",
