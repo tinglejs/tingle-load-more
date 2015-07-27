@@ -24,15 +24,15 @@ class LoadMore extends React.Component {
     componentDidMount() {
         var t = this;
 
-        document.addEventListener('scroll', this._onScroll.bind(t), false)
-        document.addEventListener('resize', this._onScroll.bind(t), false)
+        document.addEventListener('scroll', this._onScroll.bind(t), false);
+        document.addEventListener('resize', this._onScroll.bind(t), false);
     }
 
     componentWillUnmount() {
         var t = this;
         
-        document.removeEventListener('scroll', this._onScroll.bind(t), false)
-        document.removeEventListener('resize', this._onScroll.bind(t), false)
+        document.removeEventListener('scroll', this._onScroll.bind(t), false);
+        document.removeEventListener('resize', this._onScroll.bind(t), false);
     }
 
     loaded() {
@@ -86,7 +86,7 @@ class LoadMore extends React.Component {
     _onScroll() {
         var t = this;
 
-        var el = React.findDOMNode(t)
+        var el = React.findDOMNode(t);
 
         if (t._isLoading()) {
             return;
