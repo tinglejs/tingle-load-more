@@ -29,7 +29,8 @@ class LoadMore extends React.Component {
     }
 
     componentWillUnmount() {
-
+        var t = this;
+        
         document.removeEventListener('scroll', this._onScroll.bind(t), false)
         document.removeEventListener('resize', this._onScroll.bind(t), false)
     }
