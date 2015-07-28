@@ -21,6 +21,18 @@ Load-more 是下拉加载更多插件。只控制「加载更多」状态条的�
 
 ![效果图](http://aligitlab.oss-cn-hangzhou-zmf.aliyuncs.com/uploads/alinwmobile/tingle-load-more/01e5ba4132/image.png)
 
+## Best Practice 最佳实践
+
+这是一个 tingle 组件，使用请参考[这里](http://gitlab.alibaba-inc.com/alinwmobile/tingle/tree/master)。
+
+
+## 样式依赖
+
+```
+<link rel="stylesheet" href="./tingle/tingle-style/src/tingle.css">
+<link rel="stylesheet" href="./src/loadMore.css">
+```
+
 ### JSX
 
 ```
@@ -43,6 +55,41 @@ Load-more 是下拉加载更多插件。只控制「加载更多」状态条的�
 > 注2: 每次当用户滑动到需要加载的位置时，load-more 会通知父级元素去加载数据，也就是通过这个函数传递。
 
 
+## API接口
+
+### .loading()
+
+加载锁，防止重复触发 `onLoadMore` 事件。
+
+### .loaded()
+
+加载完成时调用的函数。
+
+### .noMore()
+
+没有更多了。
+
+
+## 示例
+
+```
+startLoad() {
+        var t = this;
+        var loadMore = this.refs.loadMore;
+        // 上锁
+        loadMore.loading();
+        // simulate ajax
+        setTimeout(()=> {
+                if (t.state.loadTimes < 5) {
+                    t.setState({loadTimes: ++this.state.loadTimes});
+                    loadMore.loaded()
+                } else {
+                    loadMore.noMore();
+                }
+            }
+            , 500);
+    }
+```
 
 ## Links 相关链接
 
