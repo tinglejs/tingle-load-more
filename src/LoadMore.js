@@ -30,7 +30,7 @@ class LoadMore extends React.Component {
 
     componentWillUnmount() {
         var t = this;
-        
+
         document.removeEventListener('scroll', this._onScroll.bind(t), false);
         document.removeEventListener('resize', this._onScroll.bind(t), false);
     }
@@ -71,7 +71,6 @@ class LoadMore extends React.Component {
     _isVisible(el, offset) {
         var t = this;
         offset = t.props.offset >= 50 ? t.props.offset : 50;
-
         // Check if the element is visible
         // https://github.com/jquery/jquery/blob/740e190223d19a114d5373758127285d14d6b71e/src/css/hiddenVisibleSelectors.js
         if (!el.offsetWidth || !el.offsetHeight) {
@@ -80,7 +79,7 @@ class LoadMore extends React.Component {
 
         var eltRect = el.getBoundingClientRect();
 
-        return eltRect.top < document.body.scrollTop + offset + document.documentElement.clientHeight;
+        return eltRect.top < document.documentElement.clientHeight + offset;
     }
 
     _onScroll() {
@@ -102,10 +101,11 @@ class LoadMore extends React.Component {
         this.props.onLoadMore && this.props.onLoadMore({loadState: this.state.load})
     }
 
-    _isLoading(){
+    _isLoading() {
         return this.isLoading;
     }
-    _unLock(){
+
+    _unLock() {
         this.isLoading = false;
     }
 }
