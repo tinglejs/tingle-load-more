@@ -61,7 +61,7 @@ class LoadMore extends React.Component {
             case NOMORE:
                 text = t.props.noMoreText;
         }
-        return (<div className={classnames({
+        return (<div ref="root" className={classnames({
             'tLoadMore': true,
             [t.props.className]: !!t.props.className,
             [t.state.load]: !!t.state.load
@@ -84,10 +84,10 @@ class LoadMore extends React.Component {
 
     _onScroll() {
         var t = this;
+        
+        var el = React.findDOMNode(t.refs.root);
 
-        var el = React.findDOMNode(t);
-
-        if (t._isLoading()) {
+        if (!el || t._isLoading()) {
             return;
         }
 
