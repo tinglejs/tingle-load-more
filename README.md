@@ -7,7 +7,7 @@
 - maintainers: 九神(67732)
 - version: 1.0.0
 - lastupdate: 2015-07-27
-- screenshot: http://aligitlab.oss-cn-hangzhou-zmf.aliyuncs.com/uploads/alinwmobile/tingle-load-more/01e5ba4132/image.png
+- screenshots: http://aligitlab.oss-cn-hangzhou-zmf.aliyuncs.com/uploads/alinwmobile/tingle-load-more/01e5ba4132/image.png
 
 ---
 
