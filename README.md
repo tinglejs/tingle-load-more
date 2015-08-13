@@ -23,11 +23,6 @@ Load-more 是下拉加载更多插件。只控制「加载更多」状态条的�
 
 ![效果图](http://aligitlab.oss-cn-hangzhou-zmf.aliyuncs.com/uploads/alinwmobile/tingle-load-more/01e5ba4132/image.png)
 
-## Best Practice 最佳实践
-
-这是一个 tingle 组件，使用请参考[这里](http://gitlab.alibaba-inc.com/alinwmobile/tingle/tree/master)。
-
-
 ## Simple Usage
 
 ```
