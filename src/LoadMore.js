@@ -45,6 +45,10 @@ class LoadMore extends React.Component {
     loading() {
         this.isLoading = true;
     }
+    
+    _canLoad(){
+        !this.isLoading && this.state.load !== NOMORE;
+    }
 
     noMore() {
         this.setState({load: NOMORE});
@@ -87,7 +91,7 @@ class LoadMore extends React.Component {
         
         var el = React.findDOMNode(t.refs.root);
 
-        if (!el || t._isLoading()) {
+        if (!el || !t._canLoad()) {
             return;
         }
 
