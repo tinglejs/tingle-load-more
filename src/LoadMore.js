@@ -47,7 +47,7 @@ class LoadMore extends React.Component {
     }
     
     _canLoad(){
-        !this.isLoading && this.state.load !== NOMORE;
+        return !this.isLoading && this.state.load !== NOMORE;
     }
 
     noMore() {
