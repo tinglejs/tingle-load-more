@@ -31,6 +31,19 @@ Load-more 是下拉加载更多插件。只控制「加载更多」状态条的�
 ## Simple Usage
 
 ```
+constructor(props) {
+    super(props);
+    this.state = {
+        count: 10,
+        loadTimes: 1
+    }
+}
+
+componentDidMount() {
+    // 默认需要直接先初始化一次
+    this.startLoad();
+}
+
 startLoad() {
     var t = this;
     var loadMore = this.refs.loadMore;
@@ -92,28 +105,6 @@ render() {
 ### .noMore()
 
 没有更多了。
-
-
-## 示例
-
-```
-startLoad() {
-        var t = this;
-        var loadMore = this.refs.loadMore;
-        // 上锁
-        loadMore.loading();
-        // simulate ajax
-        setTimeout(()=> {
-                if (t.state.loadTimes < 5) {
-                    t.setState({loadTimes: ++this.state.loadTimes});
-                    loadMore.loaded()
-                } else {
-                    loadMore.noMore();
-                }
-            }
-            , 500);
-    }
-```
 
 ## Links 相关链接
 
