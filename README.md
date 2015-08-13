@@ -28,21 +28,43 @@ Load-more 是下拉加载更多插件。只控制「加载更多」状态条的�
 这是一个 tingle 组件，使用请参考[这里](http://gitlab.alibaba-inc.com/alinwmobile/tingle/tree/master)。
 
 
-## 样式依赖
+## Simple Usage
 
 ```
-<link rel="stylesheet" href="./tingle/tingle-style/src/tingle.css">
-<link rel="stylesheet" href="./src/loadMore.css">
+startLoad() {
+    var t = this;
+    var loadMore = this.refs.loadMore;
+    // 上锁
+    loadMore.loading();
+    // simulate ajax
+    setTimeout(()=> {
+            if (t.state.loadTimes < 5) {
+                t.setState({loadTimes: ++this.state.loadTimes});
+                loadMore.loaded()
+            } else {
+                loadMore.noMore();
+            }
+        }
+        , 500);
+}
+
+render() {
+    var children = [];
+    for (var i = 1; i <= this.state.count * this.state.loadTimes; i++) {
+        children.push(<p key={Context.getTID()} className="tDemoP tFAC">{i}</p>)
+    }
+    return (
+        <div>
+            {children}
+            <LoadMore className="tFAC" offset={50} onLoadMore={this.startLoad.bind(this)} ref='loadMore'>
+            </LoadMore>
+        </div>
+    );
+}
 ```
 
-### JSX
 
-```
-<LoadMore className="tFAC" offset={50} onLoadMore={this.startLoad.bind(this)} ref='loadMore'/>
-```
-
-
-### 可用配置
+## 可用配置
 
 | 配置项 | 必填 | 默认值 | 功能/备注 |
 |---|----|---|----|
