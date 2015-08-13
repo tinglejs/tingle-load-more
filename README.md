@@ -1,4 +1,6 @@
-- name: load-more
+# LoadMore 下拉加载更多
+
+- name: tingle-load-more
 - category: tingle
 - tags: tingle,load-more,lodaMore,下拉,下拉加载,加载更多
 - description: 下拉加载更多。
