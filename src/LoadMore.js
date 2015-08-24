@@ -45,10 +45,6 @@ class LoadMore extends React.Component {
     loading() {
         this.isLoading = true;
     }
-    
-    _canLoad(){
-        return !this.isLoading && this.state.load !== NOMORE;
-    }
 
     _canLoad(){
         return !this.isLoading && this.state.load !== NOMORE;
@@ -65,12 +61,10 @@ class LoadMore extends React.Component {
         let text = '';
 
         switch (t.state.load) {
-            case
-            LOADING:
+            case LOADING:
                 text = t.props.loadingText;
                 break;
-            case
-            NOMORE:
+            case NOMORE:
                 text = t.props.noMoreText;
         }
         return (<div ref="root" className={classnames({
