@@ -45,6 +45,14 @@ class LoadMore extends React.Component {
     loading() {
         this.isLoading = true;
     }
+    
+    _canLoad(){
+        return !this.isLoading && this.state.load !== NOMORE;
+    }
+
+    _canLoad(){
+        return !this.isLoading && this.state.load !== NOMORE;
+    }
 
     noMore() {
         this.setState({load: NOMORE});
@@ -65,7 +73,7 @@ class LoadMore extends React.Component {
             NOMORE:
                 text = t.props.noMoreText;
         }
-        return (<div className={classnames({
+        return (<div ref="root" className={classnames({
             'tLoadMore': true,
             [t.props.className]: !!t.props.className,
             [t.state.load]: !!t.state.load
@@ -87,11 +95,11 @@ class LoadMore extends React.Component {
     }
 
     _onScroll() {
-        const t = this;
+        var t = this;
 
-        const el = React.findDOMNode(t);
+        var el = React.findDOMNode(t.refs.root);
 
-        if (t._isLoading()) {
+        if (!el || !t._canLoad()) {
             return;
         }
 
@@ -128,7 +136,5 @@ LoadMore.propTypes = {
     loadingText: React.PropTypes.string,
     noMoreText: React.PropTypes.string
 };
-
-LoadMore.displayName = 'LoadMore';
 
 module.exports = LoadMore;

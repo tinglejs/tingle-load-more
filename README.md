@@ -1,11 +1,13 @@
-- name: load-more
+# LoadMore 下拉加载更多
+
+- name: tingle-load-more
 - category: tingle
 - tags: tingle,load-more,lodaMore,下拉,下拉加载,加载更多
 - description: 下拉加载更多。
 - maintainers: 九神(67732)
 - version: 1.0.0
 - lastupdate: 2015-07-27
-- screenshot: http://aligitlab.oss-cn-hangzhou-zmf.aliyuncs.com/uploads/alinwmobile/tingle-load-more/01e5ba4132/image.png
+- screenshots: http://aligitlab.oss-cn-hangzhou-zmf.aliyuncs.com/uploads/alinwmobile/tingle-load-more/01e5ba4132/image.png
 
 ---
 
@@ -21,26 +23,56 @@ Load-more 是下拉加载更多插件。只控制「加载更多」状态条的�
 
 ![效果图](http://aligitlab.oss-cn-hangzhou-zmf.aliyuncs.com/uploads/alinwmobile/tingle-load-more/01e5ba4132/image.png)
 
-## Best Practice 最佳实践
-
-这是一个 tingle 组件，使用请参考[这里](http://gitlab.alibaba-inc.com/alinwmobile/tingle/tree/master)。
-
-
-## 样式依赖
+## Simple Usage
 
 ```
-<link rel="stylesheet" href="./tingle/tingle-style/src/tingle.css">
-<link rel="stylesheet" href="./src/loadMore.css">
+constructor(props) {
+    super(props);
+    this.state = {
+        count: 10,
+        loadTimes: 1
+    }
+}
+
+componentDidMount() {
+    // 默认需要直接先初始化一次
+    this.startLoad();
+}
+
+startLoad() {
+    var t = this;
+    var loadMore = this.refs.loadMore;
+    // 上锁
+    loadMore.loading();
+    // simulate ajax
+    setTimeout(()=> {
+            if (t.state.loadTimes < 5) {
+                t.setState({loadTimes: ++this.state.loadTimes});
+                loadMore.loaded()
+            } else {
+                loadMore.noMore();
+            }
+        }
+        , 500);
+}
+
+render() {
+    var children = [];
+    for (var i = 1; i <= this.state.count * this.state.loadTimes; i++) {
+        children.push(<p key={Context.getTID()} className="tDemoP tFAC">{i}</p>)
+    }
+    return (
+        <div>
+            {children}
+            <LoadMore className="tFAC" offset={50} onLoadMore={this.startLoad.bind(this)} ref='loadMore'>
+            </LoadMore>
+        </div>
+    );
+}
 ```
 
-### JSX
 
-```
-<LoadMore className="tFAC" offset={50} onLoadMore={this.startLoad.bind(this)} ref='loadMore'/>
-```
-
-
-### 可用配置
+## 可用配置
 
 | 配置项 | 必填 | 默认值 | 功能/备注 |
 |---|----|---|----|
@@ -68,28 +100,6 @@ Load-more 是下拉加载更多插件。只控制「加载更多」状态条的�
 ### .noMore()
 
 没有更多了。
-
-
-## 示例
-
-```
-startLoad() {
-        var t = this;
-        var loadMore = this.refs.loadMore;
-        // 上锁
-        loadMore.loading();
-        // simulate ajax
-        setTimeout(()=> {
-                if (t.state.loadTimes < 5) {
-                    t.setState({loadTimes: ++this.state.loadTimes});
-                    loadMore.loaded()
-                } else {
-                    loadMore.noMore();
-                }
-            }
-            , 500);
-    }
-```
 
 ## Links 相关链接
 
