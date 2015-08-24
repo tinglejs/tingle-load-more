@@ -1,3 +1,4 @@
-var Context = require('tingle-context');
-var Demo = require('./LoadMoreDemo');
+const Context = require('tingle-context');
+const Demo = require('./demo');
+
 React.render(<Demo/>, document.getElementById('TingleDemo'));

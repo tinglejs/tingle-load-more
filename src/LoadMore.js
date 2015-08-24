@@ -1,16 +1,16 @@
 /**
  * LoadMore Component for tingle
- * @author iThans
+ * @author yize
  *
  * Copyright 2014-2015, Tingle Team, Alinw.
  * All rights reserved.
  */
 
-var Context = require('tingle-context');
-var classnames = require('classnames');
-
-var LOADING = 'loading';
-var NOMORE = 'noMore';
+const React = require('react');
+const Context = require('tingle-context');
+const classnames = require('classnames');
+const LOADING = 'loading';
+const NOMORE = 'noMore';
 
 class LoadMore extends React.Component {
 
@@ -22,14 +22,14 @@ class LoadMore extends React.Component {
     }
 
     componentDidMount() {
-        var t = this;
+        const t = this;
 
         document.addEventListener('scroll', this._onScroll.bind(t), false);
         document.addEventListener('resize', this._onScroll.bind(t), false);
     }
 
     componentWillUnmount() {
-        var t = this;
+        const t = this;
 
         document.removeEventListener('scroll', this._onScroll.bind(t), false);
         document.removeEventListener('resize', this._onScroll.bind(t), false);
@@ -52,13 +52,17 @@ class LoadMore extends React.Component {
     }
 
     render() {
-        var t = this;
-        var text = '';
+        const t = this;
+
+        let text = '';
+
         switch (t.state.load) {
-            case LOADING:
+            case
+            LOADING:
                 text = t.props.loadingText;
                 break;
-            case NOMORE:
+            case
+            NOMORE:
                 text = t.props.noMoreText;
         }
         return (<div className={classnames({
@@ -69,7 +73,7 @@ class LoadMore extends React.Component {
     }
 
     _isVisible(el, offset) {
-        var t = this;
+        const t = this;
         offset = t.props.offset >= 50 ? t.props.offset : 50;
         // Check if the element is visible
         // https://github.com/jquery/jquery/blob/740e190223d19a114d5373758127285d14d6b71e/src/css/hiddenVisibleSelectors.js
@@ -77,15 +81,15 @@ class LoadMore extends React.Component {
             return false;
         }
 
-        var eltRect = el.getBoundingClientRect();
+        const eltRect = el.getBoundingClientRect();
 
         return eltRect.top < document.documentElement.clientHeight + offset;
     }
 
     _onScroll() {
-        var t = this;
+        const t = this;
 
-        var el = React.findDOMNode(t);
+        const el = React.findDOMNode(t);
 
         if (t._isLoading()) {
             return;
@@ -110,7 +114,6 @@ class LoadMore extends React.Component {
     }
 }
 
-// todo 是否需要加载完成的处理
 LoadMore.defaultProps = {
     offset: 50,
     onLoadMore: Context.noop,
@@ -125,5 +128,7 @@ LoadMore.propTypes = {
     loadingText: React.PropTypes.string,
     noMoreText: React.PropTypes.string
 };
+
+LoadMore.displayName = 'LoadMore';
 
 module.exports = LoadMore;

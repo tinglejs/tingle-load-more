@@ -5,10 +5,10 @@
  * Copyright 2014-2015, Tingle Team, Alinw.
  * All rights reserved.
  */
-var classnames = require('classnames');
-var Context = require('tingle-context');
 
-var LoadMore = require('../src');
+const React = require('react');
+const Context = require('tingle-context');
+const LoadMore = require('../src');
 
 class Demo extends React.Component {
 
@@ -27,8 +27,8 @@ class Demo extends React.Component {
     }
 
     startLoad() {
-        var t = this;
-        var loadMore = this.refs.loadMore;
+        const t = this;
+        let loadMore = t.refs.loadMore;
         // 上锁
         loadMore.loading();
         // simulate ajax
@@ -44,8 +44,8 @@ class Demo extends React.Component {
     }
 
     render() {
-        var children = [];
-        for (var i = 1; i <= this.state.count * this.state.loadTimes; i++) {
+        let children = [];
+        for (let i = 1; i <= this.state.count * this.state.loadTimes; i++) {
             children.push(<p key={Context.getTID()} className="tDemoP tFAC">{i}</p>)
         }
         return (
@@ -57,6 +57,5 @@ class Demo extends React.Component {
         );
     }
 }
-
 
 module.exports = Demo;
