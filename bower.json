@@ -1,0 +1,23 @@
+{
+  "name": "tingle-load-more",
+  "version": "0.0.2",
+  "homepage": "https://github.com/tinglejs/tingle-load-more",
+  "authors": [
+    "yize<yize.shc@gmail.com>"
+  ],
+  "description": "下拉加载更多。",
+  "main": "src/index.js",
+  "keywords": [
+    "LoadMore",
+    "tingle"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "dist",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

@@ -1,8 +1,6 @@
 # LoadMore 下拉加载更多
 
-## tingle-load-more [![Dependency Status](http://img.shields.io/david/tinglejs/tingle-load-more.svg?style=flat-square)](https://david-dm.org/tinglejs/tingle-load-more) [![devDependency Status](http://img.shields.io/david/dev/tinglejs/tingle-load-more.svg?style=flat-square)](https://david-dm.org/tinglejs/tingle-load-more#info=devDependencies) [![Bower version](https://badge.fury.io/bo/tingle-load-more.svg)](http://badge.fury.io/bo/tingle-load-more)
-
-[![tingle-load-more](https://nodei.co/npm/tingle-load-more.png)](https://npmjs.org/package/tingle-load-more)
+## tingle-load-more [![npm version](https://badge.fury.io/js/tingle-load-more.svg)](http://badge.fury.io/js/tingle-load-more)
 
 ## TL;DR
 
