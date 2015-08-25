@@ -1,16 +1,5 @@
 # LoadMore 下拉加载更多
 
-- name: tingle-load-more
-- category: tingle
-- tags: tingle,load-more,lodaMore,下拉,下拉加载,加载更多
-- description: 下拉加载更多。
-- maintainers: 九神(67732)
-- version: 1.0.0
-- lastupdate: 2015-07-27
-- screenshots: http://aligitlab.oss-cn-hangzhou-zmf.aliyuncs.com/uploads/alinwmobile/tingle-load-more/01e5ba4132/image.png
-
----
-
 ## tingle-load-more [![Dependency Status](http://img.shields.io/david/tinglejs/tingle-load-more.svg?style=flat-square)](https://david-dm.org/tinglejs/tingle-load-more) [![devDependency Status](http://img.shields.io/david/dev/tinglejs/tingle-load-more.svg?style=flat-square)](https://david-dm.org/tinglejs/tingle-load-more#info=devDependencies) [![Bower version](https://badge.fury.io/bo/tingle-load-more.svg)](http://badge.fury.io/bo/tingle-load-more)
 
 [![tingle-load-more](https://nodei.co/npm/tingle-load-more.png)](https://npmjs.org/package/tingle-load-more)
