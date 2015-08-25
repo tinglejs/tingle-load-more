@@ -11,11 +11,9 @@
 
 ---
 
-## LoadMore [![Dependency Status](http://img.shields.io/david/tinglejs/tingle-load-more.svg?style=flat-square)](https://david-dm.org/tinglejs/tingle-load-more) [![devDependency Status](http://img.shields.io/david/dev/tinglejs/tingle-load-more.svg?style=flat-square)](https://david-dm.org/tinglejs/tingle-load-more#info=devDependencies)
+## tingle-load-more [![Dependency Status](http://img.shields.io/david/tinglejs/tingle-load-more.svg?style=flat-square)](https://david-dm.org/tinglejs/tingle-load-more) [![devDependency Status](http://img.shields.io/david/dev/tinglejs/tingle-load-more.svg?style=flat-square)](https://david-dm.org/tinglejs/tingle-load-more#info=devDependencies) [![Bower version](https://badge.fury.io/bo/tingle-load-more.svg)](http://badge.fury.io/bo/tingle-load-more)
 
-[![travis][travis-image]][travis-url]
-[![npm][npm-image]][npm-url]
-[![downloads][downloads-image]][downloads-url]
+[![tingle-load-more](https://nodei.co/npm/tingle-load-more.png)](https://npmjs.org/package/tingle-load-more)
 
 ## TL;DR
 
@@ -104,11 +102,4 @@ render() {
 ## Links 相关链接
 
 - [Fire a bug/Issues 提Bug](http://gitlab.alibaba-inc.com/alinwmobile/tingle-load-more/issues)
-- [Tingle项目](http://gitlab.alibaba-inc.com/alinwmobile/tingle/tree/master)
-
-[travis-image]: https://img.shields.io/travis/tinglejs/tingle-load-more.svg?style=flat-square
-[travis-url]: https://travis-ci.org/tinglejs/tingle-load-more
-[npm-image]: https://img.shields.io/npm/v/tingle-load-more.svg?style=flat-square
-[npm-url]: https://npmjs.org/package/tingle-load-more
-[downloads-image]: https://img.shields.io/npm/dm/tingle-load-more.svg?style=flat-square
-[downloads-url]: https://npmjs.org/package/tingle-load-more
+- [Tingle项目](http://ux.alibaba.net/products/tingle.html)

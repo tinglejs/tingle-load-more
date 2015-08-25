@@ -1,8 +1,9 @@
 {
   "name": "tingle-load-more",
   "version": "0.0.1",
-  "description": "load-more plug-in for tingle",
-  "repository": "git@gitlab.alibaba-inc.com:tinglejs/tingle-load-more.git",
+  "category": "tingle",
+  "description": "下拉加载更多。",
+  "repository": "git@github.com:tinglejs/tingle-load-more.git",
   "author": {
     "name": "yize",
     "email": "yize.shc@gmail.com"
@@ -33,5 +34,6 @@
   "scripts": {
     "start": "gulp d"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "screenshots": "https://img.alicdn.com/tps/TB1KN4sIVXXXXbdaXXXXXXXXXXX.png"
 }
