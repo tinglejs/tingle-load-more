@@ -1,6 +1,6 @@
 {
   "name": "tingle-load-more",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "下拉加载更多。",
   "repository": "git@github.com:tinglejs/tingle-load-more.git",
   "author": {
@@ -18,11 +18,9 @@
   ],
   "dependencies": {
     "classnames": "^2.1.2",
-    "fastclick": "^1.0.6",
     "react": "^0.13.3",
-    "tingle-context": "~0.0.3",
-    "tingle-style": "~0.0.1",
-    "zepto": "0.0.4"
+    "tingle-context": "^0.1.0",
+    "tingle-style": "^0.0.2"
   },
   "devDependencies": {
     "babel-core": "^5.8.19",
