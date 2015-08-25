@@ -1,6 +1,4 @@
-# LoadMore 下拉加载更多
-
-## tingle-load-more [![npm version](https://badge.fury.io/js/tingle-load-more.svg)](http://badge.fury.io/js/tingle-load-more)
+# tingle-load-more [![npm version](https://badge.fury.io/js/tingle-load-more.svg)](http://badge.fury.io/js/tingle-load-more)
 
 ## TL;DR
 
