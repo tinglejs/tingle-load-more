@@ -8,11 +8,11 @@
 
 Load-more 是下拉加载更多插件。只控制「加载更多」状态条的显示隐藏，通知父元素进行加载。
 
-![效果图](http://aligitlab.oss-cn-hangzhou-zmf.aliyuncs.com/uploads/alinwmobile/tingle-load-more/01e5ba4132/image.png)
+![效果图](https://img.alicdn.com/tps/TB1KN4sIVXXXXbdaXXXXXXXXXXX.png_200x200.jpg)
 
 ## Simple Usage
 
-```
+```javascript
 constructor(props) {
     super(props);
     this.state = {
@@ -90,5 +90,4 @@ render() {
 
 ## Links 相关链接
 
-- [Fire a bug/Issues 提Bug](http://gitlab.alibaba-inc.com/alinwmobile/tingle-load-more/issues)
-- [Tingle项目](http://ux.alibaba.net/products/tingle.html)
+- [Fire a bug/Issues 提Bug](http://github.com/tinglejs/tingle-load-more/issues)
