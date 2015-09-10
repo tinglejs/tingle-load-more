@@ -1,10 +1,8 @@
 # tingle-load-more [![npm version](https://badge.fury.io/js/tingle-load-more.svg)](http://badge.fury.io/js/tingle-load-more)
 
-## TL;DR
-
 Load-more 是下拉加载更多插件。只控制「加载更多」状态条的显示隐藏，通知父元素进行加载。
 
-![效果图](https://img.alicdn.com/tps/TB1KN4sIVXXXXbdaXXXXXXXXXXX.png_200x200.jpg)
+<img src="https://img.alicdn.com/tps/TB1Dj2YJpXXXXbiXFXXXXXXXXXX-750-1254.png" width="375"/>
 
 ## Simple Usage
 

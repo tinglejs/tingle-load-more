@@ -6,7 +6,6 @@
  * All rights reserved.
  */
 
-const React = require('react');
 const Context = require('tingle-context');
 const LoadMore = require('../src');
 
