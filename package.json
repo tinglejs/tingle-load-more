@@ -14,7 +14,9 @@
   ],
   "keywords": [
     "LoadMore",
-    "tingle"
+    "tingle",
+    "加载",
+    "列表"
   ],
   "dependencies": {
     "classnames": "^2.1.2",
