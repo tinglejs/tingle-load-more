@@ -10,10 +10,11 @@ Load-more 是下拉加载更多插件。只控制「加载更多」状态条的�
 constructor(props) {
     super(props);
     this.state = {
-        count: 10,
-        loadTimes: 1
+        data: [],
+        page: 1
     }
 }
+
 
 componentDidMount() {
     // 默认需要直接先初始化一次
@@ -21,30 +22,33 @@ componentDidMount() {
 }
 
 startLoad() {
-    var t = this;
-    var loadMore = this.refs.loadMore;
-    // 上锁
+    const t = this;
+    let loadMore = t.refs.loadMore;
+
+    // 告诉 LoadMore 开始加载了，LoadMore 会显示正在加载中
     loadMore.loading();
-    // simulate ajax
-    setTimeout(()=> {
-            if (t.state.loadTimes < 5) {
-                t.setState({loadTimes: ++this.state.loadTimes});
-                loadMore.loaded()
-            } else {
+
+    $.getJSON(URL, {page: t.state.page}, function (d) {
+        if (d.success) {
+            let data = t.state.data.concat(d.data);
+            t.setState({data: data, page: ++t.state.page});
+            if(d.hasMore){
+                // 告诉 LoadMore 加载完成 ， 如果不告知 LoadMore 已经加载完成，LoadMore 不会再监听下一次的 inViewPort 事件
+                loadMore.loaded();
+            }else{
+                // 告诉 LoadMore 已经没有更多了，LoadMore 会显示没有更多。
                 loadMore.noMore();
             }
         }
-        , 500);
+    })
 }
 
 render() {
-    var children = [];
-    for (var i = 1; i <= this.state.count * this.state.loadTimes; i++) {
-        children.push(<p key={Context.getTID()} className="tDemoP tFAC">{i}</p>)
-    }
     return (
         <div>
-            {children}
+            {this.state.data.map(function (d) {
+                return (<p key={Context.getTID()} className="tDemoP tFAC">{d}</p>);
+            })}
             <LoadMore className="tFAC" offset={50} onLoadMore={this.startLoad.bind(this)} ref='loadMore'>
             </LoadMore>
         </div>
@@ -75,6 +79,8 @@ render() {
 加载锁，防止重复触发 `onLoadMore` 事件。
 
 ### .loaded()
+
+> changed in 0.2.1 : 如果不满一屏，loaded 执行自后会自动再次触发加载。
 
 加载完成时调用的函数。
 

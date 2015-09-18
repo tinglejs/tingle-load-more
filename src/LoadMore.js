@@ -38,6 +38,8 @@ class LoadMore extends React.Component {
         this.setState({load: LOADING});
         this.isLoading = false;
         this._unLock();
+        // 如果 loaded 之后，也应该检测下是否 inViewPort 如果是的话，应该再触发一次加载。
+        this._onScroll();
     }
 
     // lock
@@ -45,7 +47,7 @@ class LoadMore extends React.Component {
         this.isLoading = true;
     }
 
-    _canLoad(){
+    _canLoad() {
         return !this.isLoading && this.state.load !== NOMORE;
     }
 
@@ -88,9 +90,9 @@ class LoadMore extends React.Component {
     }
 
     _onScroll() {
-        var t = this;
+        const t = this;
 
-        var el = React.findDOMNode(t.refs.root);
+        const el = React.findDOMNode(t.refs.root);
 
         if (!el || !t._canLoad()) {
             return;

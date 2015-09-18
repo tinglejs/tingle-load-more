@@ -9,13 +9,15 @@
 const Context = require('tingle-context');
 const LoadMore = require('../src');
 
+const URL = "./demo/testData.json";
+
 class Demo extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            count: 10,
-            loadTimes: 1
+            data: [],
+            page: 1
         }
     }
 
@@ -28,28 +30,31 @@ class Demo extends React.Component {
     startLoad() {
         const t = this;
         let loadMore = t.refs.loadMore;
-        // 上锁
+
+        // 告诉 LoadMore 开始加载了，LoadMore 会显示正在加载中
         loadMore.loading();
-        // simulate ajax
-        setTimeout(()=> {
-                if (t.state.loadTimes < 5) {
-                    t.setState({loadTimes: ++this.state.loadTimes});
-                    loadMore.loaded()
-                } else {
+
+        $.getJSON(URL, {page: t.state.page}, function (d) {
+            if (d.success) {
+                let data = t.state.data.concat(d.data);
+                t.setState({data: data, page: ++t.state.page});
+                if(d.hasMore){
+                    // 告诉 LoadMore 加载完成 ， 如果不告知 LoadMore 已经加载完成，LoadMore 不会再监听下一次的 inViewPort 事件
+                    loadMore.loaded();
+                }else{
+                    // 告诉 LoadMore 已经没有更多了，LoadMore 会显示没有更多。
                     loadMore.noMore();
                 }
             }
-            , 500);
+        })
     }
 
     render() {
-        let children = [];
-        for (let i = 1; i <= this.state.count * this.state.loadTimes; i++) {
-            children.push(<p key={Context.getTID()} className="tDemoP tFAC">{i}</p>)
-        }
         return (
             <div>
-                {children}
+                {this.state.data.map(function (d) {
+                    return (<p key={Context.getTID()} className="tDemoP tFAC">{d}</p>);
+                })}
                 <LoadMore className="tFAC" offset={50} onLoadMore={this.startLoad.bind(this)} ref='loadMore'>
                 </LoadMore>
             </div>
